@@ -343,6 +343,9 @@
         .card:nth-child(3) { animation-delay: 0.3s; }
         .card:nth-child(4) { animation-delay: 0.4s; }
         .card:nth-child(5) { animation-delay: 0.5s; }
+h6 {
+    font-size: 2rem;
+}
     </style>
 </head>
 
@@ -361,6 +364,7 @@
                  alt="Profile" 
                  class="profile-img"
                  onerror="this.src='https://via.placeholder.com/160?text=Profile'">
+                 <h6 ALIGN="center">LOPEZ JEFFERSON</h6>
             <p class="about-text">Hi there! I'm passionate about learning, coding, and building amazing projects. 
                I love exploring new technologies and creating things that make a difference.</p>
         </div>
@@ -404,9 +408,9 @@
             <div class="media-container">
                 <h3>🎬 Video Player</h3>
                 <video controls poster="https://images.unsplash.com/photo-1492691527719-9d1e07e534b4?w=800&h=450&fit=crop">
-                    <source src="https://drive.google.com/uc?id=1Tg2XgRZXGvYHSb--FiPTLLEnu1Yp5ItP&export=download" type="video/mp4">
-                    <source src="IMG_1917.mp4" type="video/mp4">
-                    <source src="IMG_1917.webm" type="video/webm">
+                    <source src="https://drive.google.com/file/d/1s9zHSDpyHS4SaO7mwf5zPe-Z7B_YUECS/view?usp=sharing" type="video/mp4">
+                    <source src="VID.MP4" type="video/mp4">
+                    <source src="VID.webm" type="video/webm">
                     <div class="video-error">
                         <div class="video-error-icon">📹</div>
                         <p><strong>Video not found or unsupported format</strong></p>
@@ -422,6 +426,7 @@
     </footer>
 
     <script>
+
         function createParticles() {
             const container = document.getElementById('particles');
             const particleCount = 20;
@@ -462,10 +467,35 @@
 
         document.addEventListener('DOMContentLoaded', function() {
             createParticles();
+            (function addContactCard() {
+                const containerEl = document.querySelector('.container');
+                if (!containerEl) return;
+
+                const card = document.createElement('div');
+                card.className = 'card fade-in';
+                card.innerHTML = `
+                    <h2>Contact Me</h2>
+                   
+                        <li>Email: <a href="jefferson@gmail.com">jefferson@gmail.com</a></li>
+                    </ul>
+    
+                `;
+
+                containerEl.appendChild(card);
+
+                const form = card.querySelector('#contactForm');
+                form.addEventListener('submit', function (e) {
+                    e.preventDefault();
+                    const formData = new FormData(form);
+                    const name = formData.get('name') || '';
+                    const email = formData.get('email') || '';
+                    
+                });
+            })();
+
             setupScrollAnimations();
             checkVideo();
         });
     </script>
 </body>
-
 </html>
